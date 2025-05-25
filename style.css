@@ -18,16 +18,10 @@
     var(--color-background) 100%
   );
 
-  --bg-pattern-primary: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23291038' fill-opacity='0.35'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  --pattern-primary: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23291038' fill-opacity='0.35'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 
-  --bg-pattern-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%23baa9cb' fill-opacity='0.4'%3E%3Cpolygon fill-rule='evenodd' points='8 4 12 6 8 8 6 12 4 8 0 6 4 4 6 0 8 4'/%3E%3C/g%3E%3C/svg%3E");
+  --pattern-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%23baa9cb' fill-opacity='0.4'%3E%3Cpolygon fill-rule='evenodd' points='8 4 12 6 8 8 6 12 4 8 0 6 4 4 6 0 8 4'/%3E%3C/g%3E%3C/svg%3E");
 
-  /* --header-footer-color: #092011;
-  --text-hover: #ea8c84;
-  --search-color: #2d4d3c;
-  --ligh-blue-color: #77daf3;
-  --color-1: #69a1c2;
-  --color-2: #2b5328; */
   --font-nunito: "Nunito", sans-serif;
   --font-gidole: "Gidole", sans-serif;
 
@@ -46,7 +40,7 @@
   margin: 0;
 }
 
-a{
+a {
   text-decoration: none;
   color: inherit;
 }
@@ -66,7 +60,7 @@ ul {
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 170px;
+  scroll-padding-top: 170px; /* Consider making this a variable if header height changes */
 }
 
 body {
@@ -76,8 +70,7 @@ body {
 
 /* Components */
 
-/* Navbar */
-
+/* --- Navbar --- */
 .navbar {
   background-color: var(--color-primary);
 }
@@ -86,22 +79,22 @@ body {
   color: var(--color-background);
 }
 
-.nav-link:hover{
+.nav-link:hover {
   color: var(--color-primary-hover);
 }
 
-.logo {
+.logo { /* Used in navbar.html */
   aspect-ratio: 1 / 1;
   object-fit: contain;
   width: 45px;
 }
 
-.menu {
+.menu { /* Used in navbar.html */
   font-weight: 600;
   font-size: 1rem;
 }
 
-.menu-link {
+.menu-link { /* Used in navbar.html */
   position: relative;
   font-family: var(--font-gidole);
 }
@@ -127,11 +120,11 @@ body {
   --link-scale: 1;
 }
 
-.menu-link.active::before {
-  --link-scale: 1; /* Faz a linha inferior aparecer na classe .active */
+.menu-link.active::before { /* Used in navbar.html for active page */
+  --link-scale: 1;
 }
 
-.btn-menu {
+.btn-menu { /* Used in navbar.html */
   background-color: var(--color-background);
   border-radius: 8px;
   color: var(--color-text);
@@ -145,20 +138,17 @@ body {
   position: relative;
 }
 
-.btn-menu:hover {
+.btn-menu:hover,
+.btn-menu.btn-active { /* btn-active used in login.html */
   background-color: var(--color-secondary);
 }
 
-.btn-menu.btn-active{
-  background-color: var(--color-secondary);
-}
-.menu ul {
+.menu ul { /* Used in navbar.html */
   display: flex;
   gap: 3rem;
 }
 
-/* Main page layout */
-
+/* --- Main page layout --- */
 .layout {
   --cap-inline-size: 1060px;
 
@@ -168,10 +158,10 @@ body {
   justify-content: center;
   padding-inline: 24px;
   padding-top: calc(var(--nav-size));
-  color: var(--text-color);
+  color: var(--color-text); /* Typo? Should be --color-text */
 }
 
-.layout--list {
+.layout--list { /* Used in listing-games.html */
   --list-gap: 0;
   background: linear-gradient(
       to bottom,
@@ -179,78 +169,82 @@ body {
       transparent,
       var(--color-background) 80%
     ),
-    var(--bg-pattern-background);
+    var(--pattern-background);
 }
 
 .layout > * {
   grid-column: 2;
 }
 
-/* Main page banner */
+/* listing-games.html specific styles - consider moving if more are added */
+#lancamentos-listing.releases {
+  margin-top: 0;
+}
 
-.banner {
+#lancamentos-listing-heading.releases-heading.decorated-heading {
+  margin-top: 80px;
+}
+
+/* --- Main page banner --- */
+.banner { /* Used in index.html */
   --bg-size: 60px;
   display: grid;
-  grid-template-columns: 7fr 2.5fr 2.5fr;
-  grid-template-rows: 280px 140px;
+  grid-template-columns: 7fr 2.5fr 2.5fr; /* Responsive adjustments below */
+  grid-template-rows: 280px 140px; /* Responsive adjustments below */
   gap: 1rem;
   min-height: 438px;
   width: 100%;
   position: relative;
 }
 
-.banner::before {
-  content: "";
-  background-image: url("./assets/img/decoration.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  height: var(--bg-size);
-  width: var(--bg-size);
-  transform: rotate(90deg) translate(-40%, 40%);
-}
-
+.banner::before,
 .banner::after {
   content: "";
   background-image: url("./assets/img/decoration.svg");
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
-  bottom: 0;
-  right: 0;
   z-index: 2;
   height: var(--bg-size);
   width: var(--bg-size);
+}
+
+.banner::before {
+  top: 0;
+  left: 0;
+  transform: rotate(90deg) translate(-40%, 40%);
+}
+
+.banner::after {
+  bottom: 0;
+  right: 0;
   transform: rotate(270deg) translate(-40%, 40%);
 }
 
-.banner-stepper {
+.banner-stepper { /* Used in index.html for hero image layout */
   display: grid;
   gap: 8px;
   justify-items: center;
-  grid-row: 1 / 3;
+  grid-row: 1 / 3; /* Responsive adjustments below */
   position: relative;
 }
 
-.banner-link:nth-child(2) {
+.banner-link:nth-child(2) { /* Specific to index.html banner layout */
   grid-column: span 2;
 }
 
-.banner-img {
+.banner-img { /* Used for images within the banner */
   object-fit: cover;
   height: 100%;
   width: 100%;
   border-radius: 8px;
 }
 
-.banner-link:first-child .banner-img {
+.banner-link:first-child .banner-img { /* Specific to index.html banner image positioning */
   object-position: 70%;
 }
 
-.steps {
+.steps { /* Used in index.html banner for image indicators */
   --size: 8px;
   display: flex;
   gap: 8px;
@@ -265,31 +259,29 @@ body {
   height: var(--size);
   width: var(--size);
   border-radius: 50%;
-  background-color: #ccc;
+  background-color: #ccc; /* Consider using a variable */
 }
 
 .steps-step.active {
-  background-color: #777;
+  background-color: #777; /* Consider using a variable */
 }
 
+/* Modal styles (used in index.html banner and jogo-page.html) */
 .modal-body {
   padding: 0;
 }
 
-.modal-gamedetail {
+.modal-gamedetail { /* Used in jogo-page.html */
   width: 100%;
 }
 
-.carousel-item {
-  max-height: 100%
+.carousel-item { /* Bootstrap carousel item */
+  max-height: 100%;
 }
-.banner.modal img {
-  width: 80%;
-}
+/* .banner.modal img - this selector seems to be unused or misformatted */
 
-/* Main page Sections */
-
-.releases {
+/* --- Main page Sections --- */
+.releases { /* Used in index.html and listing-games.html */
   display: grid;
   gap: 24px;
   margin-top: 80px;
@@ -305,24 +297,23 @@ body {
   z-index: 1;
 }
 
-.releases.bg-dark1 {
+.releases.bg-dark1 { /* Used in index.html */
   grid-column: 1 / -1;
   margin-inline: -24px;
   padding-block: 36px;
   background-color: var(--color-primary);
-  background-image: var(--bg-pattern-primary);
+  background-image: var(--pattern-primary);
 }
 
-/* Main page card list */
-
-.card-list {
+/* --- Main page card list --- */
+.card-list { /* Used in index.html and listing-games.html */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 52px;
 }
 
-.card-list-item {
+.card-list-item { /* Styling for individual cards */
   display: grid;
   gap: 16px;
   flex-grow: 2;
@@ -333,24 +324,20 @@ body {
   border-radius: 8px;
 }
 
-/* Remove o font-size errado do h3 */
 .card-list-item > h3 {
   font: 800 1.2rem var(--font-gidole);
 }
 
-/* Remove as margens incorretas das fontes e listas*/
-ul, ol {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
+/* Combined reset for ul, ol and common text elements */
+ul,
+ol,
 :is(p, h1, h2, h3) {
+  list-style-type: none; /* For ul, ol */
   margin: 0;
   padding: 0;
 }
 
-h2 {
+h2 { /* General h2 styling, consider more specific if needed */
   font-size: 1.5rem;
   font-family: var(--font-gidole);
   font-weight: 700;
@@ -363,14 +350,14 @@ h2 {
   object-position: top;
 }
 
-.card-controls {
+.card-controls { /* Container for buttons/links in a card */
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 24px;
 }
 
-.card-link {
+.card-link { /* "Ver jogo" link */
   display: flex;
   align-items: center;
   gap: 8px;
@@ -397,7 +384,7 @@ h2 {
   --bg-scale: 1;
 }
 
-.genre-list {
+.genre-list { /* Used in cards and jogo-page.html */
   display: flex;
   gap: 0.5rem;
 }
@@ -412,7 +399,7 @@ h2 {
   height: 20px;
 }
 
-.btn-cart {
+.btn-cart { /* "Adicionar ao carrinho" button and "Conheça" button */
   display: flex;
   gap: 8px;
   align-items: center;
@@ -436,7 +423,8 @@ h2 {
   --bg-position: left;
 }
 
-.explore {
+/* --- Explore Section --- */
+.explore { /* Used in index.html */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -444,13 +432,13 @@ h2 {
   grid-column: 1 / -1;
   padding: 16px 24px;
   margin-top: 64px;
-  background-color: #291038;
+  background-color: #291038; /* Consider a variable if this color is reused */
   background-image: linear-gradient(
       45deg,
       transparent,
       var(--color-background) 70%
     ),
-    var(--bg-pattern-background);
+    var(--pattern-background);
 }
 
 .explore-img {
@@ -472,18 +460,19 @@ h2 {
 .explore-heading {
   color: var(--color-text);
   max-width: 35ch;
-  text-align: right;
+  text-align: right; /* Responsive adjustments below */
 }
 
-/* Search */
-.search-banner {
+/* --- Search Section --- */
+.search-banner { /* Used in listing-games.html */
   grid-column: 1 / -1;
   margin-inline: -24px;
-  background-position: center;
+  background-position: center; /* No background image set? */
   display: grid;
   justify-content: center;
   align-items: end;
 }
+
 .search-container {
   display: flex;
   flex-wrap: wrap;
@@ -492,19 +481,19 @@ h2 {
   padding: 36px;
 }
 
-.search-banner-img {
+.search-banner-img { /* Decorative joystick image */
   filter: drop-shadow(-15px 15px 15px var(--color-background-hover));
   object-fit: contain;
 }
 
 .search-title {
   color: var(--color-text);
-  max-width: 25ch;
-  text-align: right;
+  max-width: 25ch; /* Responsive adjustments below */
+  text-align: right; /* Responsive adjustments below */
   font-size: 3rem;
 }
 
-.search {
+.search { /* Search bar form */
   display: flex;
   align-items: center;
   border: 2px solid var(--color-background);
@@ -517,7 +506,7 @@ h2 {
   padding: 30px 15px 30px 30px;
   border-radius: 50px;
   gap: 15px;
-  transform: translateY(50%);
+  transform: translateY(50%); /* Pulls search bar up onto banner */
 }
 
 .search:focus-within {
@@ -534,39 +523,40 @@ h2 {
   cursor: pointer;
 }
 
-#search {
+#search { /* Search input field */
   width: 100%;
   border: none;
   background-color: transparent;
   font-size: 1.2rem;
-  color: var(--text-color);
+  color: var(--color-background);
   outline: none;
 }
 
 #search::placeholder {
-  color: var(--text-color);
+  color: var(--color-background); /* Changed for better readability */
 }
 
-.footer {
+/* --- Footer --- */
+.footer { /* Used in footer.html, injected into all pages */
   display: flex;
   flex-wrap: wrap;
-  align-items: start;
+  align-items: start; /* Responsive adjustments below */
   margin-top: 60px;
   min-height: 300px;
   gap: 64px;
-  padding: 24px 24px 80px 24px;
+  padding: 24px 24px 80px 24px; /* padding-bottom leaves space for .footer-img */
   background-color: var(--color-primary);
   border-top: 4px solid var(--color-auxiliary);
-  outline: 16px solid var(--color-background-hover);
+  outline: 16px solid var(--color-background-hover); /* Creates a visual separation */
   position: relative;
 }
 
-.footer-img {
+.footer-img { /* Decorative bushes image */
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  flex-grow: 2;
+  flex-grow: 2; /* Allows image to take space if footer is crowded */
   max-height: 80px;
 }
 
@@ -585,12 +575,13 @@ h2 {
   width: fit-content;
 }
 
-.footer-menu:nth-child(3) {
-  align-items: flex-end;
+.footer-menu:nth-child(3) { /* Aligns "Redes sociais" to the end on wider screens */
+  align-items: flex-end; /* Responsive adjustments below */
 }
 
 .footer-menu a:hover {
-  color: var(--ligh-blue-color);
+  color: var(--ligh-blue-color); /* This variable is currently commented out in :root */
+                                /* Consider uncommenting or replacing with a defined variable */
 }
 
 .footer-list {
@@ -611,9 +602,8 @@ h2 {
   align-items: center;
 }
 
-/* Login */
-
-.login-layout {
+/* --- Login Page --- */
+.login-layout { /* Used in login.html */
   width: 100%;
   display: grid;
   place-items: center;
@@ -625,14 +615,14 @@ h2 {
   display: grid;
   gap: 16px;
   max-width: 400px;
-  background-color: white;
+  background-color: white; /* Consider using a variable */
   padding: 24px;
   border-radius: 8px;
-  color: var(--header-footer-color);
+  color: var(--header-footer-color); /* This variable is currently commented out */
 }
 
 .login-container h1 {
-  color: var(--header-footer-color);
+  color: var(--header-footer-color); /* This variable is currently commented out */
 }
 
 .login-form {
@@ -643,7 +633,7 @@ h2 {
 .login-form label {
   display: grid;
   gap: 4px;
-  color: var(--header-footer-color);
+  color: var(--header-footer-color); /* This variable is currently commented out */
 }
 
 .login-form input {
@@ -655,25 +645,25 @@ h2 {
   border: 1px solid currentColor;
 }
 
-.login-form-btn {
+.login-form-btn { /* "Criar conta" button */
   background: var(--color-secondary);
   border: none;
   border-radius: 8px;
   color: var(--color-text);
   font-size: 1rem;
   padding-block: 0.8rem;
-  position: relative;
+  position: relative; /* For .decorated-btn */
 }
 
 .login-form-btn:hover {
   background-color: var(--color-secondary-hover);
-  color: var(--color-text);
+  /* color: var(--color-text); -- Already set */
   transition: background 300ms ease-in-out;
 }
 
-.btn-google {
+.btn-google { /* "Entrar com conta google" button */
   background-color: transparent;
-  border: 1px solid #ccc;
+  border: 1px solid #ccc; /* Consider a variable */
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -690,34 +680,47 @@ h2 {
   border: 1px solid currentColor;
 }
 
-.btn-google i {
+.btn-google i { /* Google icon */
   color: inherit;
 }
-/* jogo-page */
 
-.game-header {
+/* --- Game Page (jogo-page) --- */
+.game-header { /* Used in jogo-page.html */
   display: grid;
   gap: 8px;
   width: fit-content;
   color: var(--color-text);
 }
 
-.game-header-review i {
-  color: hsl(51, 100%, 50%);
+.game-header-review i { /* Star icons */
+  color: hsl(51, 100%, 50%); /* Consider a variable for star color */
 }
 
-.game-container {
+.game-container { /* Used in jogo-page.html for game details and purchase buttons */
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0 auto;
+  margin: 0 auto; /* Centers container if width is constrained */
   padding: 0;
   width: 100%;
 }
 
-.game-img {
+/* This .game-container rule seems to override/conflict with the one above. Review needed. */
+/* It changes width to fit-content and alignment. */
+/*
+.game-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: 0;
+  width: fit-content;
+  gap: 30px;
+}
+*/
+
+.game-img { /* Main image for the game */
   max-height: 375px;
   max-width: 100%;
   object-fit: cover;
@@ -725,19 +728,19 @@ h2 {
   border-radius: 16px;
 }
 
-.game-info {
+.game-info { /* Textual information about the game */
   display: grid;
   gap: 16px;
-  width: 33%;
+  width: 33%; /* Might be too restrictive on smaller screens */
   min-width: 300px;
   font-size: 1.2rem;
   color: var(--color-text);
 }
 
-.topics {
+.topics { /* "Ultimas Avaliações", "Plataforma", etc. */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
+  /* gap: 4px; -- overridden by gap: 0.5rem below */
   margin: 0.5rem 0;
   gap: 0.5rem;
   color: var(--color-text);
@@ -752,21 +755,12 @@ h2 {
 }
 
 .topics hr {
-  height: 1;
-  grid-column: 1/ -1;
+  height: 1px; /* More standard than just '1' */
+  grid-column: 1 / -1;
   border-color: var(--color-secondary);
 }
 
-.game-container {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: auto;
-  margin-right: 0;
-  width: fit-content;
-  gap: 30px;
-}
-
-.btn-secondary {
+.btn-purchase { /* Was .btn-secondary, "Comprar Agora" button */
   color: var(--color-text);
   border: 1px solid var(--color-secondary);
   border-radius: 8px;
@@ -775,23 +769,17 @@ h2 {
   font-size: 1rem;
 }
 
-.btn-secondary:hover {
+.btn-purchase:hover {
   box-shadow: 0px 5px 12px -5px var(--color-secondary);
 }
 
-/* Fim jogo-page */
-
 /* Utilities */
 
-.heading {
+.heading { /* General heading style, e.g., navbar brand */
   font: 600 2rem var(--font-gidole);
 }
 
-.bg-dark1 {
-  background-color: var(--header-footer-color);
-}
-
-.decorated-heading {
+.decorated-heading { /* Headings with skewed background, e.g., "Explore e descubra..." */
   color: var(--decorated-color, var(--color-background));
   position: relative;
 }
@@ -805,10 +793,10 @@ h2 {
   left: 0;
   z-index: -1;
   transform: skew(10deg, 2deg);
-  background-color: var(--decorated-bg, var(--color-text));
+  background-color: var(--decorated-bg, var(--color-text)); /* Default to text color if --decorated-bg not set */
 }
 
-.decorated-btn {
+.decorated-btn { /* Buttons with "✨" icon, e.g., "Acessar conta", "Criar conta" */
   transition: transform 200ms ease-in-out;
   position: relative;
 }
@@ -819,7 +807,7 @@ h2 {
   --icon-rotate: 20deg;
 }
 
-.decorated-btn::before {
+.decorated-btn::before { /* The "✨" icon itself */
   content: "✨";
   position: absolute;
   right: 0;
@@ -832,42 +820,43 @@ h2 {
 
 /* Responsive */
 
-@media (max-width: 450px) {
-  :is(.layout, .login-layout) {
-    --nav-size: 220px;
+@media (max-width: 450px) { /* Very small screens */
+  :is(.layout, .login-layout) { /* Adjusts padding-top based on navbar height */
+    --nav-size: 220px; /* Assumes navbar becomes taller or stacked */
   }
 }
 
-@media (max-width: 545px) {
-  .footer-menu:nth-child(3) {
+@media (max-width: 545px) { /* Small screens */
+  .footer-menu:nth-child(3) { /* Stack social media icons under other footer items */
     align-items: flex-start;
   }
 }
 
-@media (max-width: 600px) {
-  .banner {
+@media (max-width: 600px) { /* Small to medium screens */
+  .banner { /* Adjust banner grid for smaller viewports */
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .banner-stepper {
+  .banner-stepper { /* Full width for stepper on smaller screens */
     grid-row: unset;
     grid-column: 1 / 3;
   }
 }
 
-@media (max-width: 992px) { /* Ajuste o valor conforme o breakpoint do Bootstrap */
-  .btn-menu {
-    display: block; /* Garante que o botão seja exibido */
-    margin: 1rem auto; /* Centraliza o botão */
+@media (max-width: 992px) { /* Bootstrap 'lg' breakpoint */
+  .btn-menu { /* Center "Acessar conta" button when navbar collapses */
+    display: block;
+    margin: 1rem auto;
     text-align: center;
   }
 
-  .navbar-collapse {
-    text-align: center; /* Centraliza o conteúdo do menu */
+  .navbar-collapse { /* Center collapsed navbar items */
+    text-align: center;
   }
 }
 
-@media (max-width:1120px) {
+@media (max-width: 1120px) { /* Custom breakpoint */
+  .explore-heading, /* Center text for these elements */
   .search-title {
     text-align: center;
   }

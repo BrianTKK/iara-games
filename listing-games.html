@@ -23,42 +23,13 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg p-2">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="./index.html">
-          <img src="./logo/logo-iara-games-60x60.png"
-          alt="Iara Games, atualizar página" width="45" height="auto">
-          <a class="navbar-brand heading" href="./index.html">Iara Games</a>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 menu">
-            <li class="nav-item menu-link mx-3">
-              <a class="nav-link" aria-current="page" href="./index.html">Home</a>
-            </li>
-            <li class="nav-item menu-link mx-3">
-              <a class="nav-link" href="./index.html#lancamentos">Lançamentos</a>
-            </li>
-            <li class="nav-item menu-link mx-3">
-              <a class="nav-link" href="./index.html#ofertas">Ofertas</a>
-            </li>
-            <li class="nav-item menu-link mx-3 active">
-              <a class="nav-link" href="./listing-games.html">Lista de Jogos</a>
-            </li>
-          </ul>
-          
-          <a href="./login.html" class="btn-menu decorated-btn">Acessar conta</a>
-        </div>
-      </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
     <main class="layout layout--list">
       <header class="search-banner">
         <div class="search-container">
           <img
             src="./assets/img/joystick.png"
-            alt="Imagem decorativa de joystick"
+            alt=""
             role="presentation"
             aria-hidden="true"
             class="search-banner-img"
@@ -67,7 +38,7 @@
         </div>
         <form class="search" action="">
           <label for="search">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
           </label>
           <input
             type="text"
@@ -78,15 +49,15 @@
           <button>Buscar</button>
         </form>
       </header>
-      <section id="lancamentos" class="releases" style="margin-top: 0">
-        <h2 class="releases-heading decorated-heading" style="margin-top: 80px">
+      <section id="lancamentos-listing" class="releases">
+        <h2 class="releases-heading decorated-heading" id="lancamentos-listing-heading">
           Últimos Lançamentos
         </h2>
         <ul class="card-list">
           <li class="card-list-item">
             <img
               src="./assets/img/enigma_do_medo.jpg"
-              alt="Capa do jogo Enigma do Medo"
+              alt="Enigma do Medo game cover"
             />
             <h3>Irmão do Jorel e o Jogo mais importante da galáxia</h3>
             <p class="genre-list">
@@ -99,7 +70,7 @@
             </a>
           </li>
           <li class="card-list-item">
-            <img src="./assets/img/adore.jpg" alt="Capa do jogo Adore" />
+            <img src="./assets/img/adore.jpg" alt="Adore game cover" />
             <h3>Adore</h3>
             <p class="genre-list">
               <span class="genre-list-item"> Ação </span>
@@ -114,7 +85,7 @@
             <img
               class="game-img"
               src="./assets/img/irmao_do_jorel.jpg"
-              alt="Capa do jogo Irmão do Jorel e o Jogo Mais Importante da Galáxia"
+              alt="Irmão do Jorel e o Jogo Mais Importante da Galáxia game cover"
             />
             <h3>Irmão do Jorel e o Jogo Mais Importante da Galáxia</h3>
             <p class="genre-list">
@@ -127,7 +98,7 @@
             </a>
           </li>
           <li class="card-list-item">
-            <img src="./assets/img/dandy_ace.jpg" alt="Capa do jogo Dandy Ace" />
+            <img src="./assets/img/dandy_ace.jpg" alt="Dandy Ace game cover" />
             <h3>Dandy Ace</h3>
             <p class="genre-list">
               <span class="genre-list-item"> Ação </span>
@@ -141,7 +112,7 @@
           <li class="card-list-item">
             <img
               src="./assets/img/mark_of_the_deep.jpg"
-              alt="Capa do jogo Mark of the Deep"
+              alt="Mark of the Deep game cover"
             />
             <h3>Mark of the deep</h3>
             <p class="genre-list">
@@ -155,7 +126,7 @@
             </a>
           </li>
           <li class="card-list-item">
-            <img src="./assets/img/redo.jpg" alt="Capa do jogo Redo" />
+            <img src="./assets/img/redo.jpg" alt="Redo game cover" />
             <h3>Redo</h3>
             <p class="genre-list">
               <span class="genre-list-item"> Ação </span>
@@ -173,7 +144,7 @@
         <h2>Ofertas imperdíveis</h2>
         <ul class="card-list">
           <li class="card-list-item">
-            <img src="./assets/img/dandy_ace.jpg" alt="Capa do jogo Dandy Ace" />
+            <img src="./assets/img/dandy_ace.jpg" alt="Dandy Ace game cover" />
             <h3>Dandy Ace</h3>
             <p class="genre-list">
               <span class="genre-list-item"> Ação </span>
@@ -185,7 +156,7 @@
             </a>
           </li>
           <li class="card-list-item">
-            <img src="./assets/img/akane.jpg" alt="Capa do jogo Akane" />
+            <img src="./assets/img/akane.jpg" alt="Akane game cover" />
             <h3 class="game-title">Akane</h3>
             <p class="genre-list">
               <span class="genre-list-item"> Ação </span>
@@ -197,7 +168,7 @@
             </a>
           </li>
           <li class="card-list-item">
-            <img src="./assets/img/redo.jpg" alt="Capa do jogo Redo" />
+            <img src="./assets/img/redo.jpg" alt="Redo game cover" />
             <h3>Redo</h3>
             <p class="genre-list">
               <span class="genre-list-item"> Ação </span>
@@ -210,52 +181,18 @@
         </ul>
       </section>
     </main>
-    <footer class="footer">
-      <address class="footer-info">
-        <a href="#">
-          <img
-            class="footer-logo"
-            src="./logo/logo-iara-games-60x60.png"
-            alt="Iara Games - voltar para o topo"
-          />
-        </a>
-        <small>Iara Games - Jogos digitais</small>
-        <small>Brasil - BR</small>
-        <small>CNPJ: 25.815.481/0001-14</small>
-      </address>
-      <div class="footer-menu">
-        <p><strong>Jogos</strong></p>
-        <ul class="footer-list">
-          <li><a href="./jogo-page.html">Enigma do Medo</a></li>
-          <li><a href="./jogo-page.html">Adore</a></li>
-          <li><a href="./jogo-page.html">Irmão do Jorel</a></li>
-          <li><a href="./jogo-page.html">Dandy Ace</a></li>
-          <li><a href="./jogo-page.html">Mark of the deep</a></li>
-          <li><a href="./jogo-page.html">Akane</a></li>
-          <li><a href="./jogo-page.html">Redo</a></li>
-        </ul>
-      </div>
-      <div class="footer-menu">
-        <p><strong>Redes sociais</strong></p>
-        <ul class="footer-social-list">
-          <li class="footer-social-item">
-            <a href="" aria-label="Instagram" tabindex="0">
-              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-            </a>
-          </li>
-          <li class="footer-social-item">
-            <a href="" aria-label="YouTube" tabindex="0">
-              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
-            </a>
-          </li>
-          <li class="footer-social-item">
-            <a href="" aria-label="Facebook" tabindex="0">
-              <i class="fa-brands fa-facebook" aria-hidden="true"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <img src="./assets/img/bushes.png" alt="Ilustração de arbustos" class="footer-img" role="presentation" aria-hidden="true" />
-    </footer>
+    <div id="footer-placeholder"></div>
+    <script>
+      fetch('./navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar-placeholder').innerHTML = data;
+        });
+      fetch('./footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer-placeholder').innerHTML = data;
+        });
+    </script>
   </body>
 </html>
